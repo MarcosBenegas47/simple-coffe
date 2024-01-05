@@ -1,5 +1,6 @@
 import React from "react";
-import start from "./../assets/Star_fill.svg"
+import start_fill from "./../assets/Star_fill.svg"
+import start from "./../assets/Star.svg"
 import "./card.css";
 const Card = ({ id, name, img, popular, price, rating, votes, available }) => {
   return (
@@ -16,10 +17,21 @@ const Card = ({ id, name, img, popular, price, rating, votes, available }) => {
         </div>
         <div className="rating-noAvailable">
           <div className="rating-votes">
-            <img src={start} />
-            <p className="rating">
-              {rating} (<span className="votes">{votes} votes</span>)
-            </p>
+            {rating ? (
+              <>
+                <img src={start_fill} />
+                <p className="rating">
+                  {rating} (<span className="votes">{votes} votes</span>)
+                </p>
+              </>
+            ) : (
+              <>
+                <img src={start} />
+                <p className="votes">
+                  No Rating 
+                </p>
+              </>
+            )}
           </div>
           {!available && <p className="noAvailable">Sold out</p>}
         </div>

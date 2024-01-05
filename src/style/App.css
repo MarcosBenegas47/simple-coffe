@@ -9,12 +9,12 @@
 --red: #ED735D;
 }
 body {
-  background-image: url("/src/assets/bg-cafe.jpg");
+  /* background-image: url("/src/assets/bg-cafe.jpg");
   background-repeat:no-repeat;
   background-position: top;
-  background-size:contain;
-
-
+   background-size:contain  ;
+   width: 100%;
+  height: 400px; */
   background-color: var(--black);
 }
 html{
@@ -27,15 +27,19 @@ html{
     box-sizing: inherit;
 }
 h1,h2,h3 {font-family: var(--font)}
-
+h3{
+  margin: 0;
+}
 .container{
   max-width: 160rem;
-  width: 95%;
-  margin: 235px auto;
+   width: 80%; 
+  margin: 180px auto;
 }
 
 .body-main{
   background-color: var(--grey);
+    z-index: 10;
+position: relative;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -73,7 +77,52 @@ text-align: center;
 }
 .card-grid{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width:800px){
+      grid-template-columns: repeat(2, 1fr);
+
+  }
+  @media (min-width:1150px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  
   gap: 3rem;
   list-style: none;
+}
+.alingElement{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+padding-bottom: 80px;
+}
+.alingbutton{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4rem;
+}
+.button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 16px;
+}
+.buttonSelected {
+  background-color:var(--light-grey) ;
+}
+.headerImg{
+  position: absolute;
+  width: 100%;
+  height: 300px;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: 1;
 }
